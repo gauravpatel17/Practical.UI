@@ -1,0 +1,52 @@
+<div>
+   
+      <mat-table class="color-table mat-elevation-z8" [dataSource]="colors">
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let color">{{color.name}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="category">
+            <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
+            <mat-cell class="category-cell"
+                      *matCellDef="let color">{{color.category}}</mat-cell>
+    
+        </ng-container>
+    
+        <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+            <mat-cell class="type-cell"
+                      *matCellDef="let color">{{color.type}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="rgba">
+            <mat-header-cell *matHeaderCellDef>RGBA</mat-header-cell>
+            <mat-cell class="rgba-cell"
+                      *matCellDef="let color">{{color.code.rgba.toString()}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="rgbaColor">
+            <mat-header-cell *matHeaderCellDef>RGBA Color</mat-header-cell>
+            <mat-cell class="rgba-coloe-cell" style="background-color: rgba({{color.code.rgba[0]}}, {{color.code.rgba[1]}}, {{color.code.rgba[2]}}, {{color.code.rgba[3]}});"
+                      *matCellDef="let color"></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="hex">
+            <mat-header-cell *matHeaderCellDef>HEX</mat-header-cell>
+            <mat-cell class="hex-cell"
+                      *matCellDef="let color">{{color.code.hex}}</mat-cell>
+        </ng-container>        
+
+        <ng-container matColumnDef="hexColor">
+            <mat-header-cell *matHeaderCellDef>HEX Color</mat-header-cell>
+            <mat-cell class="hex-color-cell" style="background-color: {{color.code.hex}};"
+                      *matCellDef="let color"></mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    
+    </mat-table>
+
+</div>
